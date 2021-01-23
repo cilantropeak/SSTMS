@@ -1,0 +1,127 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-content">
+<h1>List of Lorry Details Data</h1>
+<table class="rwd-table">
+  <tr>
+    <th>Date</th>
+    <th>Lorry Number</th>
+    <th>Meter Reading</th>
+    <th>End Meter Reading</th>
+    <th>Filling Details</th>
+    <th>Trips</th>
+    <th>Total Trip in KMs</th>
+    <th>Comments</th>
+  </tr>
+  {% for lorry in vehicles %}
+  <tr>
+    <td data-th="date">{{ lorry.Date }}</td>
+    <td data-th="vno">{{ lorry.vechicle_no }}</td>
+    <td data-th="smr">{{ lorry.start_meter_reading }}</td>
+    <td data-th="emr">{{ lorry.end_meter_reading }}</td>
+    <td data-th="df">{{ lorry.desile_filling }}</td>
+    <td data-th="trip">{{ lorry.trips }}</td>
+    <td data-th="ttrip">{{ lorry.start_meter_reading }} - {{ lorry.end_meter_reading }} </td>
+    <td data-th="ins">{{ lorry.instructions }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+<p>&larr; More feature willbe added in future. &rarr;</p>
+
+<style>
+@import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+.rwd-table {
+  margin: 10px auto;
+  min-width: 1250px;
+  /* background: #022323; */
+  color: #010102;
+  border-radius: .4em;
+  overflow: hidden;
+}
+.rwd-table tr {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-color: #46637f;
+}
+.rwd-table th {
+  display: none;
+}
+.rwd-table td {
+  display: block;
+}
+.rwd-table td:first-child {
+  padding-top: .5em;
+}
+.rwd-table td:last-child {
+  padding-bottom: .5em;
+}
+
+.rwd-table th, .rwd-table td {
+  margin: .5em 1em;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    padding: 1em !important;
+  }
+}
+.rwd-table th, .rwd-table td:before {
+  color: rgb(49, 79, 179);
+}
+
+
+.rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 6.5em;
+  display: inline-block;
+}
+@media (min-width: 480px) {
+  .rwd-table td:before {
+    display: none;
+  }
+}
+.rwd-table th, .rwd-table td {
+  text-align: left;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+  .rwd-table th:first-child, .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child, .rwd-table td:last-child {
+    padding-right: 0;
+  }
+}
+.container-content {
+    width: 1300px;
+    background: #e2dddf6b;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto;
+    box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+}
+
+/*
+body {
+  padding: 0 2em;
+  font-family: Montserrat, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #444;
+  
+}
+
+h1 {
+  font-weight: normal;
+  letter-spacing: -1px;
+  color: #34495E;
+} */
+
+</style>
+{% endblock %}
